@@ -32,13 +32,14 @@ replace it with the new call along with its current arguments.  Thus, the queue
 is only one call deep.
 
 #### Usage
+```javascript
+function scroll (e) {
+  // do something that affects the DOM
+}
 
-    function scroll (e) {
-      // do something that affects the DOM
-    }
+var rateLimitedScroll = rAFRateLimit(scroll);
 
-    var rateLimitedScroll = rAFRateLimit(scroll);
-
-    myElement.addEventListener('scroll', function (e) {
-      rateLimitedScroll(e);
-    }
+myElement.addEventListener('scroll', function (e) {
+  rateLimitedScroll(e);
+}
+```
