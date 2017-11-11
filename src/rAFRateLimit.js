@@ -2,7 +2,7 @@
  * Copyright © 2017 by IC3 Dimensions.  MIT License.  See LICENSE.MD
  */
 
-function rAFRateLimit (func, duration) {
+function rAFRateLimit (func) {
   'use strict';
 
   var rAFId = null;
