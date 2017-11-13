@@ -7,14 +7,15 @@ function rAFRateLimit (func) {
 
   var rAFId = null;
 
-  return function (...args) {
-    if (rAFId) {
-      window.cancelAnimationFrame(rAFId);
-    }
+  return function (args) {
 
-    rAFId = window.requestAnimationFrame(function (timestamp) {
-      func(...args, timestamp);
-      rAFId = null;
-    });
+    func.args = args;
+
+    if (rAFId === null) {
+      rAFId = window.requestAnimationFrame(function (timestamp) {
+        func(timestamp);
+        rAFId = null;
+      });
+    }
   };
 }
