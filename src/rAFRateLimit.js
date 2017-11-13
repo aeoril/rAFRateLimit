@@ -5,16 +5,17 @@
 function rAFRateLimit (func) {
   'use strict';
 
-  var rAFId = null;
+  let rAFId = null;
+  let wrapperArgs;
 
   function wrapper (timestamp) {
-    func(...(wrapper.args), timestamp);
+    func(...wrapperArgs, timestamp);
     rAFId = null;
   }
 
-  return function (...args) {
+  return (...args) => {
 
-    wrapper.args = args;
+    wrapperArgs = args;
 
     if (rAFId === null) {
       rAFId = window.requestAnimationFrame(wrapper);
