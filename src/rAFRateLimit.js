@@ -7,12 +7,12 @@ function rAFRateLimit (func) {
 
   var rAFId = null;
 
-  return function (...args) {
+  function wrapper (timestamp) {
+    func(...(wrapper.args), timestamp);
+    rAFId = null;
+  }
 
-    function wrapper (timestamp) {
-      func(...(wrapper.args), timestamp);
-      rAFId = null;
-    }
+  return function (...args) {
 
     wrapper.args = args;
 
