@@ -6,6 +6,7 @@ function rAFRateLimit (func) {
   'use strict';
 
   var rAFId = null;
+  var currentArgs;
 
   return function (args) {
 
