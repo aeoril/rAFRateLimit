@@ -6,7 +6,7 @@ function rAFRateLimit (func) {
   'use strict';
 
   if (typeof func !== 'function') {
-    throw new TypeError('A single argument of type "function" is required.')
+    throw new TypeError('A single argument of type "function" is required.');
   }
 
   let rAFId = null;
