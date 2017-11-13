@@ -18,7 +18,6 @@ function rAFRateLimit (func) {
   }
 
   return (...args) => {
-
     wrapperArgs = args;
 
     if (rAFId === null) {
