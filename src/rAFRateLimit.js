@@ -9,7 +9,7 @@ function rAFRateLimit (func) {
 
   return function (...args) {
 
-    function (timestamp) wrapper {
+    function wrapper (timestamp) {
       func(...(wrapper.args), timestamp);
       rAFId = null;
     }
