@@ -17,10 +17,7 @@ function rAFRateLimit (func) {
     wrapper.args = args;
 
     if (rAFId === null) {
-      rAFId = window.requestAnimationFrame(function (timestamp) {
-        wrapper(timestamp);
-        rAFId = null;
-      });
+      rAFId = window.requestAnimationFrame(wrapper);
     }
   };
 }
