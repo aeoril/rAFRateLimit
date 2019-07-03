@@ -27,9 +27,10 @@ passing the rAF timestamp as the last argument
 
 **NOTE:** This is a *last chance* algorithm.  That is, if multiple calls to
 the queuing function happen after a previous call has been queued but before it
-has fired, the returned function will cancel the previously queued call and
-replace it with the new call along with its current arguments.  Thus, the queue
-is only one call deep.
+has fired, the returned function will keep the originally queued call, not queue
+another, but replace the arguments to the single queued call with the new
+updated arguments.  Thus, the queue is only one call deep but the arguments
+are always the latest when the call is fired.
 
 #### Usage
 ```javascript
@@ -40,6 +41,6 @@ function scroll (e) {
 var rateLimitedScroll = rAFRateLimit(scroll);
 
 myElement.addEventListener('scroll', function (e) {
-  rateLimitedScroll(e);
-}
+    rateLimitedScroll(e);
+  }, false);
 ```
