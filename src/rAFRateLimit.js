@@ -1,6 +1,4 @@
-/*
- * Copyright © 2017 by IC3 Dimensions.  MIT License.  See LICENSE.MD
- */
+// Copyright © 2019 by Xitalogy.  MIT License.  http://opensource.org/licenses/MIT
 
 function rAFRateLimit (func) {
   'use strict';
